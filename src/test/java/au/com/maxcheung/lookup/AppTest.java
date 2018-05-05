@@ -63,9 +63,9 @@ public class AppTest {
         verify(builder).properties(captor.capture());
 
         // Check the basics
-        assertEquals("Lonsec Company Service", captor.getValue().get("application.title"));
+        assertEquals("Lookup Service", captor.getValue().get("application.title"));
         assertEquals("1.0.0", captor.getValue().get("application.version"));
-        assertEquals("Lonsec Digital", captor.getValue().get("application.vendor"));
+        assertEquals("Max Cheung Digital", captor.getValue().get("application.vendor"));
     }
 
     /**
@@ -86,7 +86,7 @@ public class AppTest {
         banner.printBanner(envMock, App.class, new PrintStream(output));
 
         // Check the banner printed out the application name somewhere in there
-        assertTrue(output.toString().contains("Lonsec Company"));
+        assertTrue(output.toString().contains("Lookup Service"));
         assertTrue(output.toString().contains("testProfile"));
     }
 
