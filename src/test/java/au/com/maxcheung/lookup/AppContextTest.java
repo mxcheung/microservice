@@ -1,7 +1,7 @@
 package au.com.maxcheung.lookup;
 
 import static org.junit.Assert.assertEquals;
-import org.junit.Ignore;
+
 import org.junit.Test;
 
 
@@ -22,5 +22,6 @@ public class AppContextTest {
         properties[0] = SERVER_PORT_ARG;
         properties[1] = FLYWAY_LOCATIONS_CLASSPATH_DB_H2;
         App.main(properties);
+        assertEquals(2,properties.length);
     }
 }
