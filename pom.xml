@@ -29,9 +29,9 @@
 		<skip.unit.tests>false</skip.unit.tests>
 
 		<!-- Code coverage properties -->
-		<coverage.line.ratio>0.70</coverage.line.ratio>
-		<coverage.branch.ratio>0.70</coverage.branch.ratio>
-		<coverage.complexity.ratio>0.70</coverage.complexity.ratio>
+		<coverage.line.ratio>0.60</coverage.line.ratio>
+		<coverage.branch.ratio>0.60</coverage.branch.ratio>
+		<coverage.complexity.ratio>0.60</coverage.complexity.ratio>
 
 		<!-- Java Version source/target -->
 		<jdk.source.version>1.8</jdk.source.version>
