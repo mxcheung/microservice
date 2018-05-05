@@ -19,6 +19,12 @@ java -jar fileingestor.jar datafile.txt out.csv
 - [Codacy](https://www.codacy.com/app/mxcheung/microservice?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mxcheung/microservice&amp;utm_campaign=Badge_Grade)
 
 
+CREATE USER 'golden'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON * . * TO 'golden'@'localhost';
+FLUSH PRIVILEGES;
+
+-Dspring.profiles.active=local-mysql
+
 ### Relevant Articles: 
 - [Introduction to Spring Batch](http://www.baeldung.com/introduction-to-spring-batch)
 - [FixedLengthTokenizer](https://docs.spring.io/spring-batch/trunk/apidocs/org/springframework/batch/item/file/transform/FixedLengthTokenizer.html)
