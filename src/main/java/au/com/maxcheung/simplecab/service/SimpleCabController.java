@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SimpleCabController {
 
     @Autowired
-    SimpleCabService simpleCabService;
+    private SimpleCabService simpleCabService;
 
     @GetMapping("/countByMedallionAndPickupDate")
     public Integer getCountByMedallionAndPickupDatetime(@RequestParam(value = "medallionId") String medallionId,

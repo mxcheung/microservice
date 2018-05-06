@@ -18,7 +18,7 @@ public class SimpleCabRepositoryImpl implements SimpleCabRepository {
     private static final Logger log = LoggerFactory.getLogger(SimpleCabRepositoryImpl.class);
 
     @Autowired
-    JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
     @Override
     @Cacheable("cabTrips")
