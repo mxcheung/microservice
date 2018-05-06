@@ -1,4 +1,4 @@
-package au.com.maxcheung.simplecab.service;
+package au.com.maxcheung.simplecab.repository;
 
 import java.util.Date;
 
@@ -13,12 +13,20 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class SimpleCabRepositoryImpl implements SimpleCabRepository {
 
+    private static final String TRUNCATE_TABLE_CAB_TRIP_DATA = "truncate table cab_trip_data";
+
     private static final String COUNT_BY_MEDALLION_AND_PICKUP_DATE = "SELECT count(*) FROM cab_trip_data WHERE medallion = ? and date(pickup_datetime) = ? ";
 
     private static final Logger log = LoggerFactory.getLogger(SimpleCabRepositoryImpl.class);
 
+    private final JdbcTemplate jdbcTemplate;
+
+    
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    public SimpleCabRepositoryImpl(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
 
     @Override
     @Cacheable("cabTrips")
@@ -30,12 +38,20 @@ public class SimpleCabRepositoryImpl implements SimpleCabRepository {
 
     
     @Override
+    public void clearCabTripData() {
+        log.info("truncate table cab_trip_data ");
+        jdbcTemplate.execute(TRUNCATE_TABLE_CAB_TRIP_DATA);
+    }
+
+    
+    
+    @Override
     public Integer loadCSV(String filepath) {
         log.info("loadCSV filepath : {}  ", filepath);
         String tableName = "cab_trip_data";
         String INFILE_COLUMN_SEPARATION_CHAR = ",";
         String sql = "LOAD DATA LOCAL INFILE '" + filepath + "' into table " + tableName
-                + " COLUMNS TERMINATED BY '" + INFILE_COLUMN_SEPARATION_CHAR + "'";
+                + " COLUMNS TERMINATED BY '" + INFILE_COLUMN_SEPARATION_CHAR + "' ENCLOSED BY '\"'";
         int  result = jdbcTemplate.update(sql);
         return result;
     }
@@ -44,7 +60,7 @@ public class SimpleCabRepositoryImpl implements SimpleCabRepository {
     
     @Override
     @CacheEvict(value = "cabTrips", allEntries = true)
-    public void resetAllEntries() {
+    public void clearCache() {
         // Intentionally blank
     }
 

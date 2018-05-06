@@ -13,6 +13,23 @@ This module intentions is to:
 ### How to run the program ###
 java -jar fileingestor.jar datafile.txt out.csv
 
+
+### How to load cab data from csv file###
+curl -X GET "http://localhost:8080/cab/loadCSV?filepath=E%3A%2FTEMP2%2Fcabdata2.csv" -H "accept: */*"
+
+- http://localhost:8080/cab/loadCSV?filepath=E%3A%2FTEMP2%2Fcabdata2.csv
+
+### How to number of trip by medallion ###
+- curl -X GET "http://localhost:8080/cab/countByMedallionAndPickupDate?medallionId=D7D598CD99978BD012A87A76A7C891B7&pickupDate=2013-12-01" -H "accept: */*"
+
+- http://localhost:8080/cab/countByMedallionAndPickupDate?medallionId=D7D598CD99978BD012A87A76A7C891B7&pickupDate=2013-12-01
+
+### How to clear cache###
+curl -X DELETE "http://localhost:8080/cab/resetAllEntries" -H "accept: */*"
+http://localhost:8080/cab/resetAllEntries
+
+
+
 ### Continous Integration and Code Coverage 
 - [Continous Integration](https://travis-ci.org/mxcheung/microservice?branch=master)
 - [Code Coverage](https://codecov.io/gh/mxcheung/microservice)
@@ -34,13 +51,14 @@ mysql -p nyc6 < E:\TEMP2\ny_cab_data_cab_trip_data_full.sql
 
 ### Relevant Articles: 
 - [Introduction to Spring Batch](http://www.baeldung.com/introduction-to-spring-batch)
-- [FixedLengthTokenizer](https://docs.spring.io/spring-batch/trunk/apidocs/org/springframework/batch/item/file/transform/FixedLengthTokenizer.html)
+- [How to Quickly Load 380K Items Into MySQL](https://dzone.com/articles/how-to-quickly-load-380k-items-into-mysql)
+- [Importing CSV using LOAD DATA INFILE quote problem](https://stackoverflow.com/questions/7019506/importing-csv-using-load-data-infile-quote-problem?rq=1)
 - [Jackson CSV extension](http://www.baeldung.com/spring-app-setup-with-csv-files)
 - [Java Bean Validation Basics](http://www.baeldung.com/javax-validation)
 
 ### What is this repository for? ###
 
-* Service to process Future Clearing files
+* Service to process query cab trips from csv.
 * 1.0.0
 
 ### How do I get set up? ###

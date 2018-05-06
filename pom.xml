@@ -12,11 +12,11 @@
 		and packages -->
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>au.com.maxcheung</groupId>
-	<artifactId>lookup-service</artifactId>
+	<artifactId>cabdata-service</artifactId>
 	<version>${revision}${changelist}</version>
 	<packaging>war</packaging>
-	<name>lookup-service</name>
-	<description>Lookup Micro Service</description>
+	<name>cabdata-service</name>
+	<description>Cab Data Micro Service</description>
 
 	<properties>
 		<revision>1.0.0</revision>

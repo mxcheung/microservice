@@ -8,7 +8,7 @@ public interface SimpleCabService {
 
     Integer getCountByMedallionAndPickupDatetime(String medallionId, Date pickupDate);
 
-    void resetAllEntries();
+    void clearCache();
 
     Map<String, Integer> getCountByMedallionsAndPickupDatetime(List<String> medallionIds, Date pickupDate);
 

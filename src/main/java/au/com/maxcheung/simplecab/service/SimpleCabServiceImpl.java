@@ -9,6 +9,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import au.com.maxcheung.simplecab.repository.SimpleCabRepository;
 
 @Service
 public class SimpleCabServiceImpl implements SimpleCabService {
@@ -30,14 +33,17 @@ public class SimpleCabServiceImpl implements SimpleCabService {
     }
 
     @Override
+    @Transactional
     public Integer loadCSV(String filepath) {
+        simpleCabRepository.clearCabTripData();
+        simpleCabRepository.clearCache();
         return simpleCabRepository.loadCSV(filepath);
     }
 
     
     @Override
-    public void resetAllEntries() {
-        simpleCabRepository.resetAllEntries();
+    public void clearCache() {
+        simpleCabRepository.clearCache();
     }
 
 
