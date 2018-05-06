@@ -8,4 +8,6 @@ public interface SimpleCabRepository {
 
     void resetAllEntries();
 
+    Integer loadCSV(String filepath);
+
 }

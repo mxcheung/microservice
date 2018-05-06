@@ -28,6 +28,20 @@ public class SimpleCabRepositoryImpl implements SimpleCabRepository {
                 Integer.class);
     }
 
+    
+    @Override
+    public Integer loadCSV(String filepath) {
+        log.info("loadCSV filepath : {}  ", filepath);
+        String tableName = "cab_trip_data";
+        String INFILE_COLUMN_SEPARATION_CHAR = ",";
+        String sql = "LOAD DATA LOCAL INFILE '" + filepath + "' into table " + tableName
+                + " COLUMNS TERMINATED BY '" + INFILE_COLUMN_SEPARATION_CHAR + "'";
+        int  result = jdbcTemplate.update(sql);
+        return result;
+    }
+
+    
+    
     @Override
     @CacheEvict(value = "cabTrips", allEntries = true)
     public void resetAllEntries() {

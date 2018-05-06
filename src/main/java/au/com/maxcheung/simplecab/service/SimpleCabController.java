@@ -25,14 +25,18 @@ public class SimpleCabController {
         return simpleCabService.getCountByMedallionAndPickupDatetime(medallionId, java.sql.Date.valueOf(pickupDate));
     }
 
-    
     @GetMapping("/countByMedallionsAndPickupDate")
-    public Map<String, Integer> getCountByMedallionsAndPickupDatetime(@RequestParam(value = "medallionIds") List<String> medallionIds,
+    public Map<String, Integer> getCountByMedallionsAndPickupDatetime(
+            @RequestParam(value = "medallionIds") List<String> medallionIds,
             @RequestParam(value = "pickupDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate pickupDate) {
         return simpleCabService.getCountByMedallionsAndPickupDatetime(medallionIds, java.sql.Date.valueOf(pickupDate));
     }
 
-    
+    @GetMapping("/loadCSV")
+    public Integer loadCsv(@RequestParam(value = "filepath") String filepath) {
+        return simpleCabService.loadCSV(filepath);
+    }
+
     @DeleteMapping("/resetAllEntries")
     public void resetAllEntries() {
         simpleCabService.resetAllEntries();

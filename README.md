@@ -3,8 +3,8 @@
  
 [![travis](https://travis-ci.org/mxcheung/microservice.svg?branch=master)](https://travis-ci.org/mxcheung/microservice?branch=master)
 [![codecov](https://codecov.io/gh/mxcheung/microservice/branch/master/graph/badge.svg)](https://codecov.io/gh/mxcheung/microservice)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a6949db121aa4485ae233638d880f080)](https://www.codacy.com/app/mxcheung/microservice?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mxcheung/microservice&amp;utm_campaign=Badge_Grade)
-[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/a6949db121aa4485ae233638d880f080)](https://www.codacy.com/app/mxcheung/microservice?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mxcheung/microserviceg&amp;utm_campaign=Badge_Coverage)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f4d27930885946fd9fbd34ee8e42e449)](https://www.codacy.com/app/mxcheung/microservice?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mxcheung/microservice&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/f4d27930885946fd9fbd34ee8e42e449)](https://www.codacy.com/app/mxcheung/microservice?utm_source=github.com&utm_medium=referral&utm_content=mxcheung/microservice&utm_campaign=Badge_Coverage)
 
 This module intentions is to:  
    - read fixed length transaction files.
@@ -22,6 +22,13 @@ java -jar fileingestor.jar datafile.txt out.csv
 CREATE USER 'golden'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON * . * TO 'golden'@'localhost';
 FLUSH PRIVILEGES;
+
+mysql -u username -p nyc6 < E:\TEMP2\ny_cab_data_cab_trip_data_full.sql
+
+
+mysql -p nyc6 < E:\TEMP2\ny_cab_data_cab_trip_data_full.sql
+
+
 
 -Dspring.profiles.active=local-mysql
 

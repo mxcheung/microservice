@@ -12,4 +12,6 @@ public interface SimpleCabService {
 
     Map<String, Integer> getCountByMedallionsAndPickupDatetime(List<String> medallionIds, Date pickupDate);
 
+    Integer loadCSV(String filepath);
+
 }

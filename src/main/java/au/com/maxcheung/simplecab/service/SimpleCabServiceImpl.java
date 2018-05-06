@@ -29,6 +29,11 @@ public class SimpleCabServiceImpl implements SimpleCabService {
         return simpleCabRepository.getCountByMedallionAndPickupDatetime(medallionId, pickupDate);
     }
 
+    @Override
+    public Integer loadCSV(String filepath) {
+        return simpleCabRepository.loadCSV(filepath);
+    }
+
     
     @Override
     public void resetAllEntries() {
